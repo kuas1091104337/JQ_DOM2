@@ -11,11 +11,17 @@
   <img src="./images/button/1.png">
   <img src="./images/button/2.png">
   <div>
-    <a class="on" href="javascript:;">設定</a>
-    <a class="off" href="javascript:;">取消</a>
-    <a class="one" href="javascript:;">單次設定</a>
+    <a class="on" href="javascript:;">設定 on</a>
+    <a class="off" href="javascript:;">取消 off</a>
+    <a class="one" href="javascript:;">單次設定 one</a>
   </div>
-  <script src="js/jquery-3.1.1.min.js"></script>
-  <script src="js/02-01-attachEvent.js"></script>
+  <!-- <script src="js/jquery-3.1.1.min.js"></script>
+  <script src="js/02-01-attachEvent.js"></script> -->
+  <script>
+    const clickHandle = () => alert('click');
+    document.querySelector('.on').addEventListener('click',clickHandle);
+    document.querySelector('.off').removeEventListener('click',clickHandle);
+    // document.querySelector('.one').
+  </script>
 </body>
 </html>
