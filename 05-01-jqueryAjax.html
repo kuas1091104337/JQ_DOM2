@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>05-01-jqueryAjax</title>
+  <style type="text/css">
+    html{
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: #0769AD;
+      font-size: 16px;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <h1></h1>
+  <div></div>
+  <script src="./js/jquery-3.1.1.min.js"></script>
+  <script>
+    $(function(){
+
+      $.ajax({
+        url: 'http://www.yacoding.com/jquery.php',
+        dataType: 'json'
+      })
+      // .done(function(res) {
+      //   console.log("success:",res)
+      //   $('h1').html(res.data.name)
+      //   $('div').html(res.data.description)
+      // })
+      // .fail(function(err) {
+      //   console.log("error:",err)
+      // })
+      .then(function(res) {
+        console.log("success:",res)
+        $('h1').html(res.data.name)
+        $('div').html(res.data.description)
+      },function(err) {
+        console.log("error:",err)
+      })
+
+    })
+  </script>
+</body>
+</html>

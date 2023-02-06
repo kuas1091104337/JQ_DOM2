@@ -1,0 +1,44 @@
+html{
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #0769AD;
+  font-size: 16px;
+  color: white;
+}
+body{
+  font-size: 24px;
+  line-height: 30px;
+  text-align: center;
+}
+.card{
+  position: relative;
+  display: inline-block;
+  width: 266px;
+  height: 314px;
+  user-select: none;
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+}
+
+.card.open{
+  transform: rotateY(180deg);
+}
+.card > div{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.front{
+  background-image: url("../images/button/0.png");
+}
+
+.back{
+  transform: rotateY(180deg);
+}

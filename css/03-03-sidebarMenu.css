@@ -1,0 +1,106 @@
+html{
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #0769AD;
+  font-size: 14px;
+  color: white;
+}
+body{
+  transition: all .5s;
+  left: 0;
+  position: relative;
+  text-align: center;
+  overflow-x: hidden
+}
+body.menuOpen{
+  overflow-y: hidden;
+  left: 250px;
+}
+
+img{
+  width: 100%;
+}
+
+#menu{
+  transition: all .5s;
+  border-radius: 50%;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  background: #fff;
+  z-index: 999;
+}
+
+#menu span,#menu:before,#menu:after{
+  transition: all .5s;
+  content: "";
+  display: block;
+  width: 40%;
+  height: 3px;
+  margin: 0 auto;
+  background-color: #0769AD;
+}
+#menu:before{
+  margin-top: 18px
+}
+
+#menu span{
+  margin-top: 3px;
+  margin-bottom: 3px
+}
+
+#nav{
+  transition: all .5s;
+  position: fixed;
+  z-index: 998;
+  top: 0;
+  left: -250px;
+  width: 250px;
+  height: 100%;
+  overflow-x: hidden;
+  background-color: #0769AD;
+}
+
+#nav a{
+  display: block;
+  line-height: 60px;
+  text-decoration: none;
+  color: #0769AD;
+  background-color: #fff;
+  border-bottom: 1px solid;
+  cursor: pointer;
+
+}
+
+.mask{
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 997;
+  width:100%;
+  height:100%;
+  background-color: rgba(0,0,0,0.5)
+}
+
+.menuOpen #menu{
+    left: 270px;
+    transform: rotate(180deg);
+}
+.menuOpen #menu:before{
+    transform: translateY(6px) rotate(45deg);
+}
+.menuOpen #menu:after{
+    transform: translateY(-6px) rotate(-45deg);
+}
+.menuOpen #menu span{
+    background-color: transparent;
+}
+.menuOpen #nav{
+   left: 0;
+}

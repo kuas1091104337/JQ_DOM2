@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>05-03-multiAjax</title>
+  <style type="text/css">
+    html{
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: #0769AD;
+      font-size: 16px;
+      color: white;
+    }
+    body{
+      font-size: 24px;
+      line-height: 30px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <script src="./js/jquery-3.1.1.min.js"></script>
+  <script>
+    $(function(){
+
+      var ajax1 = $.ajax({
+        url: 'http://www.yacoding.com/jquery.php?random='+Math.random(),
+        dataType: 'json'
+      }).always(function(obj){
+        console.log('ajax1 ok')
+        $('body').append('<p>ajax1 end</p>')
+      })
+      var ajax2 = $.ajax({
+        url: './api/test1.json?random='+Math.random(),
+        dataType: 'json'
+      }).always(function(obj){
+        $('body').append('<p>ajax2 end</p>')
+      })
+      var ajax3 = $.ajax({
+        url: './api/test2.json?random='+Math.random(),
+        dataType: 'json'
+      }).always(function(obj){
+        $('body').append('<p>ajax3 end</p>')
+      })
+
+      $.when(ajax1,ajax2,ajax3).then(function(res1,res2,res3){
+        console.log('ajax1:',res1)
+        console.log('ajax2:',res2)
+        console.log('ajax3:',res3)
+        $('body').append('<p>all end</p>')
+      },function(){
+        $('body').append('<p>Something Error</p>')
+      })
+
+    })
+  </script>
+</body>
+</html>

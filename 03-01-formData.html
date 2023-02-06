@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>03-01-formData</title>
+  <link rel="stylesheet" type="text/css" href="css/03-01-formData.css">
+</head>
+<body>
+  <form action="test">
+    <p>
+      姓名:
+      <input type="text" name="name">
+    </p>
+    <p>
+      性別:
+      <input type="radio" name="sex" value="male" checked>男
+      <input type="radio" name="sex" value="female">女
+    </p>
+    <p>
+      技能:
+      <input type="checkbox" name="skill" value="html">HMTL
+      <input type="checkbox" name="skill" value="css">CSS
+      <input type="checkbox" name="skill" value="javascript">Javascript
+    </p>
+    <a class="check" href="javascript:;">全選</a>
+    <a class="cancel" href="javascript:;">取消</a>
+    <p>
+      最愛:
+      <select name="favorite">
+        <option>請選擇</option>
+        <option value="html">HTML</option>
+        <option value="css">CSS</option>
+        <option value="javascript">Javascript</option>
+      </select>
+    </p>
+    <a class="text" href="javascript:;">設定文字框</a>
+    <a class="data" href="javascript:;">讀取資料</a>
+  </form>
+
+  <script src="js/jquery-3.1.1.min.js"></script>
+  <script src="js/03-01-formData.js"></script>
+</body>
+</html>

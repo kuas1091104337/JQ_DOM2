@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>01-02-emmet</title>
+  <style type="text/css">
+    html{
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: #0769AD;
+      font-size: 16px;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <h2>! 可得到 html5 基本結構</h2>
+    <xmp>
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <title>Document</title>
+        </head>
+        <body>
+          
+        </body>
+        </html>
+    </xmp>
+  </div>
+  <div>
+    <h2>.className 或 #idName 可得到帶有 class 或 id 的 div (可指定 tag)</h2>
+    例如 #wrap、.item、a.btn 可分別得到
+    <xmp>
+        <div id="wrap"></div>
+        <div class="item"></div>
+        <a class="btn"></a>
+    </xmp>
+  </div>
+  <div>
+    <h2>> 可指定內層 dom</h2>
+    例如 #wrap>.item>a.btn 可得到
+    <xmp>
+      <div id="wrap">
+        <div class="item"><a href="" class="btn"></a></div>
+      </div>
+    </xmp>
+  </div>
+  <div>
+    <h2>+ 可指定同層 dom</h2>
+    例如 #wrap>.item>h2+a.btn 可得到
+    <xmp>
+      <div id="wrap">
+        <div class="item">
+          <h2></h2>
+          <a href="" class="btn"></a>
+        </div>
+      </div>
+    </xmp>
+  </div>
+  <div>
+    <h2>[] 可指定 dom 屬性、{} 可指定內容</h2>
+    例如 a[href="http://www.flycan.com.tw/" target="_blank"]{Flycan.com} 可得到
+    <xmp>
+      <a href="http://www.flycan.com.tw/" target="_blank">Flycan.com</a>
+    </xmp>
+  </div>
+  <div>
+    <h2>* 可指定數量</h2>
+    例如 ul>li*4 可得到
+    <xmp>
+      <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </xmp>
+  </div>
+  <div>
+    <h2>$ 可產生序號，位數依照 $ 的數量決定</h2>
+    例如 ul>li.item${$$}*4 可得到
+    <xmp>
+      <ul>
+        <li class="item1">01</li>
+        <li class="item2">02</li>
+        <li class="item3">03</li>
+        <li class="item4">04</li>
+      </ul>
+    </xmp>
+  </div>
+  <div>
+    <h2>綜合以上方法，加上 () 群組功能，便可一次產生整頁 HTML 結構</h2>
+    例如 #wrap>(header>h1{Flycan}+ul>li.item$*4>a{$$})+main+(footer>p{Flycan.com}) 可得到
+    <xmp>
+      <div id="wrap">
+        <header>
+          <h1>Flycan</h1>
+          <ul>
+            <li class="item1"><a href="">01</a></li>
+            <li class="item2"><a href="">02</a></li>
+            <li class="item3"><a href="">03</a></li>
+            <li class="item4"><a href="">04</a></li>
+          </ul>
+        </header>
+        <main></main>
+        <footer>
+          <p>Flycan.com</p>
+        </footer>
+      </div>
+    </xmp>
+  </div>
+</body>
+</html>

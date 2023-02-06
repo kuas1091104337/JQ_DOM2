@@ -1,0 +1,27 @@
+html{
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #0769AD;
+  font-size: 16px;
+}
+body{
+  text-align: center;
+}
+#menu{
+  position:fixed;
+  top:-170px;
+  left:50%;
+  margin-left: -375px;
+  width: 750px;
+  height: 200px;
+  background-image: url('../images/slideMenu.gif');
+  padding-top:30px;
+  box-sizing: border-box;
+  text-align: center;
+}
+#menu a{
+  text-decoration: none;
+}

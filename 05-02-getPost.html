@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>05-02-getPost</title>
+  <style type="text/css">
+    html{
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: #0769AD;
+      font-size: 16px;
+      color: white;
+    }
+    select{
+      width: 100px;
+      height: 30px;
+    }
+    a{
+      display: inline-block;
+      text-decoration: none;
+      color: #0769AD;
+      background-color: #ffffff;
+      padding: 5px 10px;
+      font-size: 12px;
+      line-height: 20px;
+    }
+  </style>
+</head>
+<body>
+  <select>
+    <option value="0">0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+  </select>
+  <a id="get" href="javascript:;">GET</a>
+  <a id="post" href="javascript:;">POST</a>
+  <script src="./js/jquery-3.1.1.min.js"></script>
+  <script>
+    $(function(){
+
+      $('a').on('click',function(){
+        var type = this.id
+        $.ajax({
+          url: 'http://www.yacoding.com/class.php',
+          type: type,
+          dataType: 'json',
+          data: {id: $('select').val()}
+        })
+        .always(function(obj) {
+          if(obj.status && obj.status == "success"){
+            alert(obj[type+'data'].class)
+          }else{
+            alert(error)
+          }
+        })
+      })
+
+    })
+  </script>
+</body>
+</html>

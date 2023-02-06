@@ -1,0 +1,24 @@
+html{
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #0769AD;
+  font-size: 16px;
+  color: white;
+}
+body{
+  font-size: 24px;
+  line-height: 30px;
+  text-align: center;
+}
+a{
+  display: inline-block;
+  text-decoration: none;
+  color: #0769AD;
+  background-color: #ffffff;
+  padding: 5px 10px;
+  font-size: 12px;
+  line-height: 20px;
+}

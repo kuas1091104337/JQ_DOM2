@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>05-07-addressFrom</title>
+  <style type="text/css">
+    html{
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: #0769AD;
+      font-size: 16px;
+      color: white;
+    }
+    input,select{
+      margin: 0;
+      padding: 0;
+      border:none;
+      outline: none;
+      height: 30px;
+      line-height: 30px;
+    }
+    input{
+      text-align: center;
+      width: 50px;
+    }
+    select{
+      width: 100px;
+    }
+  </style>
+</head>
+<body>
+  <input type="text" value="請選擇" disabled readonly>
+  <select id="city">
+    <option>請選擇</option>
+  </select>
+  <select id="area">
+    <option>請選擇</option>
+  </select>
+  <script src="./js/jquery-3.1.1.min.js"></script>
+  <script>
+    $(function(){
+      var postal
+
+      function init(){
+
+        $.each(postal, function(index, value) {
+          var $option = $("<option></option>")
+          $option.val(index).html(index)
+          $('#city').append($option)
+        })
+
+        $('#city').on('change',function(){
+          $('#area > option').eq(0).siblings().remove()
+          $.each(postal[$('#city').val()], function(index, value) {
+            var $option = $("<option></option>")
+            $option.val(value).html(index)
+            $('#area').append($option)
+          })
+        })
+
+        $('#area').on('change',function(){
+          $('input').val($('#area').val())
+        })
+
+      }
+
+      $.ajax({
+        url: './api/postal.json',
+        dataType: 'json'
+      })
+      .done(function(res) {
+        postal = res
+        init()
+      })
+    })
+  </script>
+</body>
+</html>
