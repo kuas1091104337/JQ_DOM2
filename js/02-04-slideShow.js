@@ -1,19 +1,16 @@
 $(function(){
-  
   var now=0,next=0;
   var prePos = {top:'100%'}
   var pasPos = {top:'-100%'}
   var pos = {top:''}
   var intervalTime = 2000
   var animationTime = 500
-
   function clickHandler(){
     if($(this).index() == now) return false
     $('.imgNav li').off('click')
     next = $(this).index()
     changHandler(false)
   }
-
   function changHandler(auto){
     $('.imgList li').stop()
     .eq(now).css(pos).animate(pasPos,animationTime)

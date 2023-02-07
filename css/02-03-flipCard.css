@@ -13,32 +13,29 @@ body{
   line-height: 30px;
   text-align: center;
 }
+.wrap{font-size: 0;}
 .card{
-  position: relative;
-  display: inline-block;
+  vertical-align:top;
   width: 266px;
   height: 314px;
+  display: inline-block;
   user-select: none;
+  position: relative;
   transform-style: preserve-3d;
   transition: transform 0.5s;
 }
 
 .card.open{
+  box-shadow:0 0 0 1px red;
   transform: rotateY(180deg);
 }
 .card > div{
+  width: 100%;
+  height: 100%;
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
   backface-visibility: hidden;
 }
-
-.front{
-  background-image: url("../images/button/0.png");
-}
-
-.back{
-  transform: rotateY(180deg);
-}
+.front{ background-image: url("../images/button/0.png"); }
+.back{ transform: rotateY(180deg); }

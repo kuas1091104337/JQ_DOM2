@@ -1,20 +1,16 @@
 $(function(){
   
   function getStyleObj(target,mouseevent){
-    
     var obj = {}
     var styleObj = {}
-    
     var top = Math.abs(0 - mouseevent.offsetY)
     var bottom = Math.abs(target.innerHeight() - mouseevent.offsetY)
     var left = Math.abs(0 - mouseevent.offsetX)
     var right = Math.abs(target.innerWidth() - mouseevent.offsetX)
-    
     obj[top] = 'top';
     obj[bottom] = 'bottom';
     obj[left] = 'left';
     obj[right] = 'right';
-    
     switch(obj[Math.min(top,bottom,left,right)]){
       case 'top':
         styleObj.top = '-100%';
