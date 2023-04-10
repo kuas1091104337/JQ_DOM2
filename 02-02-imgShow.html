@@ -7,7 +7,7 @@
   <link rel="stylesheet" type="text/css" href="css/02-02-imgShow.css">
 </head>
 <body>
-  <div id="imgShow" onmouseenter="clearInterval(timer)" onmouseleave="auto()">
+  <div id="imgShow">
     <ul class="imgList">
       <li><img src="./images/children/0.jpg"></li>
       <li><img src="./images/children/1.jpg"></li>
@@ -19,49 +19,32 @@
       <li><img src="./images/children/7.jpg"></li>
     </ul>
     <div class="imgNav">
-      <a class="prev" href="javascript:;" onclick="imgShow(-1)">上一張</a>
-      <a class="switch" href="javascript:;" onclick="imgSwitch(this)">暫停</a> 
-      <a class="next" href="javascript:;" onclick="imgShow(1)">下一張</a>
+      <a class="prev" href="javascript:;">上一張</a>
+      <a class="switch" href="javascript:;">暫停</a> 
+      <a class="next" href="javascript:;">下一張</a>
     </div>
   </div>
   <hr>
   <hr>
   <hr>
   <hr>
-  <p onclick="Pfn(this,'red')">click</p>
+  <p class="test">click</p>
   <!-- <script src="js/jquery-3.1.1.min.js"></script>
   <script src="js/02-02-imgShow.js"></script> -->
-  <script>
-    let imgIdx = 0,
-        timerTime = 1000,
-        timer = null,
-        timerState = true,
-        $imgShow = document.getElementById('imgShow');
-    const imgListLength = document.querySelectorAll('.imgList > li').length,
-          imgShow = (val=1) => {
-            document.querySelector('.imgList').children[imgIdx].style = '';
-            imgIdx+=val;
-            imgIdx = (imgIdx + imgListLength) % imgListLength;
-            document.querySelector('.imgList').children[imgIdx].style.display = 'block';
-          },
-          auto = () => {
-            if(timerState) timer = setInterval(imgShow,timerTime);
-          },
-          // imgSwitch = (e) => {
-          imgSwitch = (element) => {
-            timerState = !timerState;
-            element.innerHTML = timerState ? '暫停' : '播放';
-            // e.target.innerHTML = timerState ? '暫停' : '播放';
-          };
-    // $imgShow.addEventListener('mouseenter',() => clearInterval(timer));
-    // $imgShow.addEventListener('mouseleave',() => auto());
-    // document.querySelector('.switch').addEventListener('click',imgSwitch);
-    imgShow(0);
-    auto();
-    const Pfn = (element,color) => {
-      element.style.color = color;
-      element.innerHTML = 'ABCD'
-    };
+  <script type="module">
+    import {Pfn, imgShowFn, imgSwitchFn, autoFn, stopFn} from './js/02-02.js';
+    window.onload = () => {
+      const length = document.querySelectorAll('.imgList > li').length,
+            $imgList = document.querySelector('.imgList');
+      document.querySelector('.test').addEventListener('click', e => Pfn(e.target,'red'), false);
+      document.querySelector('.prev').addEventListener('click', () => imgShowFn($imgList,length,-1), false);
+      document.querySelector('.next').addEventListener('click', () => imgShowFn($imgList,length,1), false);
+      document.querySelector('.switch').addEventListener('click', e => imgSwitchFn(e.target), false);
+      document.getElementById('imgShow').addEventListener('mouseenter', stopFn, false);
+      document.getElementById('imgShow').addEventListener('mouseleave', () => autoFn($imgList,length), false);
+      imgShowFn($imgList,length,0);
+      autoFn($imgList,length);
+    }
   </script>
 </body>
 </html>

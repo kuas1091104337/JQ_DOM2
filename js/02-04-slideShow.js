@@ -24,7 +24,6 @@ $(function(){
     $('.imgNav li').removeClass('open').removeAttr('style')
     .eq(next).addClass('open')
   }
-
   function nextHandler(){
     next = now + 1
     if(next > $('.imgList li').length-1 ){
@@ -32,16 +31,12 @@ $(function(){
     }
     changHandler(true);
   } 
-
   $('#imgShow').on('mouseenter', function(){ 
     $('.imgNav li div').stop().removeAttr('style');
   }).on('mouseleave', function(){
     $('.imgNav li.open div').stop().animate({width:'0%'},intervalTime,nextHandler)
   })
-  
   $('.imgList li').eq(now).siblings().css(prePos) 
   $('.imgNav li').on('click', clickHandler).eq(now).addClass('open')
-
   $('#imgShow').triggerHandler('mouseleave')
-  
 });

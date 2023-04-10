@@ -18,5 +18,4 @@ $(function(){
   $('a').on('click',function(e){
     $(document).triggerHandler('click')
   })
-
 })

@@ -7,7 +7,7 @@
   <link rel="stylesheet" type="text/css" href="css/02-05-clickMenu.css">
 </head>
 <body>
-  <div id="menu">
+  <div class="menu" onclick="menuOpneFn(this)">
     <a href="#">
       <img src="./images/button/0.png" width="100">
     </a>
@@ -29,5 +29,24 @@
   </div>
   <!-- <script src="js/jquery-3.1.1.min.js"></script>
   <script src="js/02-05-clickMenu.js"></script> -->
+  <script>
+    window.onload = function(){
+      const menuOpneFn = (el) => {
+        console.log(el);
+        el.classList.add('menu_opne');
+      };
+    }
+    window.onload = () => {
+      document.onclick = () => {
+        console.log(123);
+      }
+      // document.getElementById('menu').onclick = (e) => {
+      //   console.log(e);
+      //   console.log(e.target);
+      //   console.log(e.currentTarget);
+      //   e.stopPropagation();
+      // }
+    }
+  </script>
 </body>
 </html>
