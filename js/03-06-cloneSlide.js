@@ -1,12 +1,12 @@
 $(function(){
 
-  var target = 4
-  var page = 4
-  var move = 256
-  var total = $("li").length
-  var begin =  $("li").slice(0,page).clone()
-  var end =  $("li").slice(page * -1).clone()
-  var max
+  var target = 4,
+      page = 4,
+      move = 256,
+      total = $("li").length,
+      begin =  $("li").slice(0,page).clone(),
+      end =  $("li").slice(page * -1).clone(),
+      max;
 
   function completeHandler(){
 
