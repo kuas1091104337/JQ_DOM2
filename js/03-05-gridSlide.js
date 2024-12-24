@@ -1,11 +1,11 @@
 $(function(){
 
-  var target = 0
-  var page = 4
-  var move = 256
-  var direct = 1
-  var $items = $('li')
-  var total = $items.length
+  var target = 0,
+      page = 4,
+      move = 256,
+      direct = 1,
+      $items = $('li'),
+      total = $items.length;
 
   function completeHandler(){
     if($(this).index() == $('li').length - 1){
